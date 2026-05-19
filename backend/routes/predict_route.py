@@ -84,6 +84,13 @@ def predict_all_zones():
         {"area": "Erode Market", "lat": 11.3480, "lng": 77.7280, "incidents": 28, "district": "Erode"},
         {"area": "Chennimalai", "lat": 11.2990, "lng": 77.6050, "incidents": 5, "district": "Erode"},
 
+        # --- SATHYAMANGALAM ---
+        {"area": "Sathyamangalam Town", "lat": 11.5040, "lng": 77.2380, "incidents": 18, "district": "Erode"},
+        {"area": "Sathyamangalam Bus Stand", "lat": 11.5060, "lng": 77.2350, "incidents": 22, "district": "Erode"},
+        {"area": "Hasanur", "lat": 11.6230, "lng": 77.1540, "incidents": 14, "district": "Erode"},
+        {"area": "Talamalai", "lat": 11.5800, "lng": 77.1900, "incidents": 10, "district": "Erode"},
+        {"area": "Bargur", "lat": 11.6500, "lng": 77.3200, "incidents": 16, "district": "Erode"},
+
         # --- THENI ---
         {"area": "Theni Town", "lat": 10.0104, "lng": 77.4770, "incidents": 16, "district": "Theni"},
         {"area": "Bodinayakanur", "lat": 10.0110, "lng": 77.3510, "incidents": 11, "district": "Theni"},
