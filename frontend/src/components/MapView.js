@@ -27,7 +27,7 @@ const MapView = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/predict-all')
+    axios.get('https://nila-backend.onrender.com/api/predict-all')
       .then((res) => {
         setDangerZones(res.data.data);
         setLoading(false);
