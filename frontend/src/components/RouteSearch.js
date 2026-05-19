@@ -41,12 +41,19 @@ const RouteSearch = ({ dangerZones, userLocation, onRouteFound }) => {
   const calculateRouteSafety = (start, end) => {
     let totalDangerScore = 0;
     let highZones = [];
+
     const midLat = (start.lat + end.lat) / 2;
     const midLng = (start.lng + end.lng) / 2;
 
     dangerZones.forEach((zone) => {
-      const dist = getDistance(midLat, midLng, zone.lat, zone.lng);
-      if (dist < 2) {
+      // Start, mid, end — 3 points check பண்ணு
+      const distStart = getDistance(start.lat, start.lng, zone.lat, zone.lng);
+      const distMid = getDistance(midLat, midLng, zone.lat, zone.lng);
+      const distEnd = getDistance(end.lat, end.lng, zone.lat, zone.lng);
+
+      const minDist = Math.min(distStart, distMid, distEnd);
+
+      if (minDist < 1.5) {
         totalDangerScore += zone.danger_score || 50;
         if (zone.level === 'high') {
           highZones.push(zone.area);
@@ -54,8 +61,7 @@ const RouteSearch = ({ dangerZones, userLocation, onRouteFound }) => {
       }
     });
 
-    const count = dangerZones.length || 1;
-    const safetyScore = Math.max(0, 100 - totalDangerScore / count);
+    const safetyScore = Math.max(0, 100 - totalDangerScore);
     return { safetyScore: Math.round(safetyScore), highZones };
   };
 
